@@ -1,15 +1,18 @@
 package com.example.readappointment.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
 public class Appointment {
 
     @Id
+<<<<<<< HEAD
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ID autogenerado
+>>>>>>> 00194a5a650956651856a108e26d28805f35d357
     private Long id;
 
     @Column(name = "patient_id", nullable = false) // ID del paciente
@@ -18,6 +21,18 @@ public class Appointment {
     @Column(name = "doctor_id", nullable = false) // ID del doctor
     private Long doctorId;
 
+<<<<<<< HEAD
+    @Column(name = "appointment_date_time", nullable = false)
+    private LocalDateTime appointmentDateTime;
+
+    @Column(name = "appointment_date", nullable = false)
+    private String appointmentDate;
+
+    @Column(name = "status", nullable = false)
+    private String status; // e.g., "PENDING", "COMPLETED"
+
+    // Getters and Setters
+=======
     @Column(name = "appointment_date", nullable = false) // Fecha de la cita
     private LocalDate appointmentDate;
 
@@ -40,6 +55,7 @@ public class Appointment {
     }
 
     // Getters y Setters
+>>>>>>> 00194a5a650956651856a108e26d28805f35d357
     public Long getId() {
         return id;
     }
@@ -64,20 +80,20 @@ public class Appointment {
         this.doctorId = doctorId;
     }
 
-    public LocalDate getAppointmentDate() {
+    public LocalDateTime getAppointmentDateTime() {
+        return appointmentDateTime;
+    }
+
+    public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
+        this.appointmentDateTime = appointmentDateTime;
+    }
+
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(LocalDate appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
-    }
-
-    public LocalTime getAppointmentTime() {
-        return appointmentTime;
-    }
-
-    public void setAppointmentTime(LocalTime appointmentTime) {
-        this.appointmentTime = appointmentTime;
     }
 
     public String getStatus() {
